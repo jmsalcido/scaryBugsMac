@@ -10,6 +10,8 @@ import Cocoa
 
 class MasterViewController: NSViewController {
 
+    var bugs = [ScaryBugDoc]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
