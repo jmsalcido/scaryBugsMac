@@ -16,6 +16,11 @@
 		4EA2A39A1CB9DA050083F778 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA2A3981CB9DA050083F778 /* MasterViewController.xib */; };
 		4EA2A39E1CB9DB100083F778 /* ScaryBugData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2A39D1CB9DB100083F778 /* ScaryBugData.swift */; };
 		4EA2A3A01CB9E2E40083F778 /* ScaryBugDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2A39F1CB9E2E40083F778 /* ScaryBugDoc.swift */; };
+		4EA2A3A61CBB39FE0083F778 /* shockedface2_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA2A3A31CBB39FE0083F778 /* shockedface2_empty.png */; };
+		4EA2A3A71CBB39FE0083F778 /* shockedface2_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA2A3A41CBB39FE0083F778 /* shockedface2_full.png */; };
+		4EA2A3A81CBB39FE0083F778 /* shockedface2_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA2A3A51CBB39FE0083F778 /* shockedface2_half.png */; };
+		4EA2A3AC1CBB3A2A0083F778 /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2A3AB1CBB3A2A0083F778 /* EDStarRating.m */; };
+		4EA2A3B31CBB3A590083F778 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2A3B21CBB3A590083F778 /* NSImage+Extras.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,14 @@
 		4EA2A3981CB9DA050083F778 /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController.xib; sourceTree = "<group>"; };
 		4EA2A39D1CB9DB100083F778 /* ScaryBugData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaryBugData.swift; sourceTree = "<group>"; };
 		4EA2A39F1CB9E2E40083F778 /* ScaryBugDoc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaryBugDoc.swift; sourceTree = "<group>"; };
+		4EA2A3A31CBB39FE0083F778 /* shockedface2_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shockedface2_empty.png; sourceTree = "<group>"; };
+		4EA2A3A41CBB39FE0083F778 /* shockedface2_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shockedface2_full.png; sourceTree = "<group>"; };
+		4EA2A3A51CBB39FE0083F778 /* shockedface2_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shockedface2_half.png; sourceTree = "<group>"; };
+		4EA2A3A91CBB3A290083F778 /* ScaryBugsMac-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScaryBugsMac-Bridging-Header.h"; sourceTree = "<group>"; };
+		4EA2A3AA1CBB3A2A0083F778 /* EDStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStarRating.h; sourceTree = "<group>"; };
+		4EA2A3AB1CBB3A2A0083F778 /* EDStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStarRating.m; sourceTree = "<group>"; };
+		4EA2A3B11CBB3A590083F778 /* NSImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extras.h"; sourceTree = "<group>"; };
+		4EA2A3B21CBB3A590083F778 /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +114,13 @@
 		4EA2A36B1CB9D9AE0083F778 /* ScaryBugsMac */ = {
 			isa = PBXGroup;
 			children = (
+				4EA2A3B01CBB3A530083F778 /* Headers */,
+				4EA2A3A21CBB39EB0083F778 /* Views */,
+				4EA2A3A11CBB39E60083F778 /* Art */,
 				4EA2A39C1CB9DAF00083F778 /* Model */,
 				4EA2A39B1CB9DACF0083F778 /* GUI */,
 				4EA2A36E1CB9D9AE0083F778 /* Assets.xcassets */,
-				4EA2A3731CB9D9AE0083F778 /* Info.plist */,
+				4EA2A3B41CBB3AB20083F778 /* Supporting Files */,
 			);
 			path = ScaryBugsMac;
 			sourceTree = "<group>";
@@ -145,6 +161,43 @@
 				4EA2A39F1CB9E2E40083F778 /* ScaryBugDoc.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		4EA2A3A11CBB39E60083F778 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				4EA2A3A31CBB39FE0083F778 /* shockedface2_empty.png */,
+				4EA2A3A41CBB39FE0083F778 /* shockedface2_full.png */,
+				4EA2A3A51CBB39FE0083F778 /* shockedface2_half.png */,
+			);
+			name = Art;
+			sourceTree = "<group>";
+		};
+		4EA2A3A21CBB39EB0083F778 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4EA2A3AA1CBB3A2A0083F778 /* EDStarRating.h */,
+				4EA2A3AB1CBB3A2A0083F778 /* EDStarRating.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4EA2A3B01CBB3A530083F778 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4EA2A3B11CBB3A590083F778 /* NSImage+Extras.h */,
+				4EA2A3B21CBB3A590083F778 /* NSImage+Extras.m */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		4EA2A3B41CBB3AB20083F778 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EA2A3A91CBB3A290083F778 /* ScaryBugsMac-Bridging-Header.h */,
+				4EA2A3731CB9D9AE0083F778 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +305,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA2A36F1CB9D9AE0083F778 /* Assets.xcassets in Resources */,
+				4EA2A3A61CBB39FE0083F778 /* shockedface2_empty.png in Resources */,
+				4EA2A3A81CBB39FE0083F778 /* shockedface2_half.png in Resources */,
+				4EA2A3A71CBB39FE0083F778 /* shockedface2_full.png in Resources */,
 				4EA2A3721CB9D9AE0083F778 /* MainMenu.xib in Resources */,
 				4EA2A39A1CB9DA050083F778 /* MasterViewController.xib in Resources */,
 			);
@@ -280,8 +336,10 @@
 			files = (
 				4EA2A39E1CB9DB100083F778 /* ScaryBugData.swift in Sources */,
 				4EA2A3991CB9DA050083F778 /* MasterViewController.swift in Sources */,
+				4EA2A3AC1CBB3A2A0083F778 /* EDStarRating.m in Sources */,
 				4EA2A3A01CB9E2E40083F778 /* ScaryBugDoc.swift in Sources */,
 				4EA2A36D1CB9D9AE0083F778 /* AppDelegate.swift in Sources */,
+				4EA2A3B31CBB3A590083F778 /* NSImage+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,11 +472,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ScaryBugsMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.otfusion.ScaryBugsMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScaryBugsMac/ScaryBugsMac-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -426,11 +487,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ScaryBugsMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.otfusion.ScaryBugsMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScaryBugsMac/ScaryBugsMac-Bridging-Header.h";
 			};
 			name = Release;
 		};
