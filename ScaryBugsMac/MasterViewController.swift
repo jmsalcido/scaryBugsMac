@@ -46,7 +46,7 @@ class MasterViewController: NSViewController {
         
         if let scaryBugDoc = doc {
             title = scaryBugDoc.data.title
-            image = scaryBugDoc.fullImage!
+            image = scaryBugDoc.fullImage
             rating = scaryBugDoc.data.rating
         }
         
@@ -74,6 +74,30 @@ class MasterViewController: NSViewController {
     
     
 }
+
+extension MasterViewController {
+    
+    @IBAction func addBug(sender: AnyObject) {
+        let newDoc = ScaryBugDoc(title: "New Bug", rating: 0.0, thumbImage: nil, fullImage: nil)
+        self.bugs.append(newDoc)
+        let newRowIndex = self.bugs.count - 1
+        
+        let nsIndexSet = NSIndexSet(index: newRowIndex)
+        
+        self.bugsTableView.insertRowsAtIndexes(nsIndexSet, withAnimation: NSTableViewAnimationOptions.EffectGap)
+        self.bugsTableView.selectRowIndexes(nsIndexSet, byExtendingSelection: false)
+        self.bugsTableView.scrollRowToVisible(newRowIndex)
+    }
+    
+    @IBAction func deleteBug(sender: AnyObject) {
+        if selectedBugDoc() != nil {
+            self.bugs.removeAtIndex(self.bugsTableView.selectedRow)
+            self.bugsTableView.removeRowsAtIndexes(NSIndexSet(index:self.bugsTableView.selectedRow), withAnimation: NSTableViewAnimationOptions.SlideLeft)
+            updateDetailInfo(nil)
+        }
+    }
+}
+
 
 extension MasterViewController: NSTableViewDataSource {
     func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
