@@ -39,6 +39,12 @@ class MasterViewController: NSViewController {
         return nil
     }
     
+    func reloadSelectedRow() {
+        let indexSet = NSIndexSet(index: self.bugsTableView.selectedRow)
+        let columSet = NSIndexSet(index: 0)
+        self.bugsTableView.reloadDataForRowIndexes(indexSet, columnIndexes: columSet)
+    }
+    
     func updateDetailInfo(doc: ScaryBugDoc?) {
         var title = ""
         var image = NSImage?()
@@ -76,6 +82,13 @@ class MasterViewController: NSViewController {
 }
 
 extension MasterViewController {
+    
+    @IBAction func bugTitleDidEndEdit(sender: AnyObject) {
+        if let selectedDoc = selectedBugDoc() {
+            selectedDoc.data.title = self.bugTitleView.stringValue
+            reloadSelectedRow()
+        }
+    }
     
     @IBAction func addBug(sender: AnyObject) {
         let newDoc = ScaryBugDoc(title: "New Bug", rating: 0.0, thumbImage: nil, fullImage: nil)
@@ -126,5 +139,9 @@ extension MasterViewController: NSTableViewDelegate {
 }
 
 extension MasterViewController: EDStarRatingProtocol {
-    
+    func starsSelectionChanged(control: EDStarRating!, rating: Float) {
+        if let selectedDoc = selectedBugDoc() {
+            selectedDoc.data.rating = Double(self.bugRatingView.rating)
+        }
+    }
 }

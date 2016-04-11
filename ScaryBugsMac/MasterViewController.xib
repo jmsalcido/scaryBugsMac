@@ -112,6 +112,9 @@
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <action selector="bugTitleDidEndEdit:" target="-2" id="03L-vh-DoN"/>
+                    </connections>
                 </textField>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dir-sm-VfP" customClass="EDStarRating">
                     <rect key="frame" x="268" y="240" width="228" height="48"/>
