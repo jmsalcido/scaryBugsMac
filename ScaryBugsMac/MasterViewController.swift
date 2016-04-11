@@ -10,28 +10,68 @@ import Cocoa
 
 class MasterViewController: NSViewController {
     
+    @IBOutlet weak var bugsTableView: NSTableView!
+    @IBOutlet weak var bugTitleView: NSTextFieldCell!
+    @IBOutlet weak var bugImageView: NSImageView!
+    @IBOutlet weak var bugRatingView: EDStarRating!
+    
     let useStub = true
     var bugs = [ScaryBugDoc]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bugs = getBugs()
+        bugs = getSampleBugs()
     }
     
-    func getBugs() -> [ScaryBugDoc] {
-        if useStub {
-            return setupSampleBugs();
+    func getSampleBugs() -> [ScaryBugDoc] {
+        let sampleBug1 = ScaryBugDoc(title: "Potato Bug", rating: 4.0, thumbImage: NSImage(named: "potatoBugThumb"), fullImage: NSImage(named: "potatoBug"))
+        let sampleBug2 = ScaryBugDoc(title: "House Centipede", rating: 3.0, thumbImage: NSImage(named: "centipedeThumb"), fullImage: NSImage(named: "centipede"))
+        let sampleBug3 = ScaryBugDoc(title: "Wolf Spider", rating: 5.0, thumbImage: NSImage(named: "wolfSpiderThumb"), fullImage: NSImage(named: "wolfSpider"))
+        let sampleBug4 = ScaryBugDoc(title: "Lady Bug", rating: 1.5, thumbImage: NSImage(named: "ladybugThumb"), fullImage: NSImage(named: "ladybug"))
+        return [sampleBug1, sampleBug2, sampleBug3, sampleBug4]
+    }
+    
+    func selectedBugDoc() -> ScaryBugDoc? {
+        let selectedRow = self.bugsTableView.selectedRow
+        if selectedRow >= 0 && selectedRow < self.bugs.count {
+            return self.bugs[selectedRow]
         }
-        return [ScaryBugDoc]()
+        return nil
     }
     
-    func setupSampleBugs() -> [ScaryBugDoc] {
-        let stubBug1 = ScaryBugDoc(title: "Potato Bug", rating: 4.0, thumbImage: NSImage(named: "potatoBugThumb"), fullImage: NSImage(named: "potatoBug"))
-        let stubBug2 = ScaryBugDoc(title: "House Centipede", rating: 3.0, thumbImage: NSImage(named: "centipedeThumb"), fullImage: NSImage(named: "centipede"))
-        let stubBug3 = ScaryBugDoc(title: "Wolf Spider", rating: 5.0, thumbImage: NSImage(named: "wolfSpiderThumb"), fullImage: NSImage(named: "wolfSpider"))
-        let stubBug4 = ScaryBugDoc(title: "Lady Bug", rating: 1.0, thumbImage: NSImage(named: "ladybugThumb"), fullImage: NSImage(named: "ladybug"))
-        return [stubBug1, stubBug2, stubBug3, stubBug4]
+    func updateDetailInfo(doc: ScaryBugDoc?) {
+        var title = ""
+        var image = NSImage?()
+        var rating = 0.0
+        
+        if let scaryBugDoc = doc {
+            title = scaryBugDoc.data.title
+            image = scaryBugDoc.fullImage!
+            rating = scaryBugDoc.data.rating
+        }
+        
+        self.bugTitleView.stringValue = title
+        self.bugImageView.image = image
+        self.bugRatingView.rating = Float(rating)
     }
+    
+    override func loadView() {
+        super.loadView()
+        
+        self.bugRatingView.starHighlightedImage = NSImage(named: "shockedface2_full.png")!
+        self.bugRatingView.starImage = NSImage(named: "shockedface2_empty.png")!
+        
+        self.bugRatingView.delegate = self
+        
+        self.bugRatingView.maxRating = 5
+        self.bugRatingView.horizontalMargin = 12
+        self.bugRatingView.editable = true
+        self.bugRatingView.displayMode = UInt(EDStarRatingDisplayFull)
+        self.bugRatingView.halfStarThreshold = 0.001
+        
+        self.bugRatingView.rating = Float(0.0)
+    }
+    
     
 }
 
@@ -54,4 +94,13 @@ extension MasterViewController: NSTableViewDataSource {
 }
 
 extension MasterViewController: NSTableViewDelegate {
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        let selectedDoc = selectedBugDoc()
+        updateDetailInfo(selectedDoc)
+    }
+}
+
+extension MasterViewController: EDStarRatingProtocol {
+    
 }

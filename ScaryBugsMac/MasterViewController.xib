@@ -7,29 +7,34 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MasterViewController" customModule="ScaryBugsMac" customModuleProvider="target">
             <connections>
+                <outlet property="bugImageView" destination="M8A-JR-5Hr" id="Oco-Ww-oou"/>
+                <outlet property="bugRating" destination="dir-sm-VfP" id="g4E-Sa-eNl"/>
+                <outlet property="bugRatingView" destination="dir-sm-VfP" id="rOy-ZA-LMh"/>
+                <outlet property="bugTitleView" destination="Vzb-Ry-1aN" id="RM0-it-5HB"/>
+                <outlet property="bugsTableView" destination="Wop-uH-79C" id="8j2-c8-fbJ"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="516" height="388"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrE-AV-VE4">
-                    <rect key="frame" x="20" y="20" width="240" height="232"/>
+                    <rect key="frame" x="20" y="20" width="188" height="348"/>
                     <clipView key="contentView" ambiguous="YES" id="KSB-VV-ftb">
-                        <rect key="frame" x="1" y="1" width="238" height="230"/>
+                        <rect key="frame" x="1" y="1" width="186" height="346"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="32" rowSizeStyle="automatic" viewBased="YES" id="Wop-uH-79C">
-                                <rect key="frame" x="0.0" y="0.0" width="238" height="230"/>
+                                <rect key="frame" x="0.0" y="0.0" width="186" height="346"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn identifier="BugColumn" width="235" minWidth="40" maxWidth="1000" headerToolTip="BlaBlabla" id="Zsh-HA-zz1">
+                                    <tableColumn identifier="BugColumn" width="183" minWidth="40" maxWidth="1000" headerToolTip="BlaBlabla" id="Zsh-HA-zz1">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +48,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="6z0-ea-1np">
-                                                <rect key="frame" x="1" y="1" width="235" height="32"/>
+                                                <rect key="frame" x="1" y="1" width="183" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1B2-dD-5fm">
@@ -84,7 +89,45 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XY5-mw-Uwe">
+                    <rect key="frame" x="255" y="351" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name" id="NdK-VY-4DP">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVO-ql-4Si">
+                    <rect key="frame" x="255" y="296" width="48" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rating" id="SH1-Zs-eSt">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtF-eu-aLD">
+                    <rect key="frame" x="268" y="321" width="228" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Vzb-Ry-1aN">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dir-sm-VfP" customClass="EDStarRating">
+                    <rect key="frame" x="268" y="240" width="228" height="48"/>
+                </customView>
+                <box horizontalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1uZ-rb-gei">
+                    <rect key="frame" x="229" y="20" width="5" height="348"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8A-JR-5Hr">
+                    <rect key="frame" x="278" y="26" width="209" height="209"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="cEi-Eo-7kk"/>
+                </imageView>
             </subviews>
+            <point key="canvasLocation" x="277" y="474"/>
         </customView>
     </objects>
     <resources>
