@@ -19,6 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         masterViewController = MasterViewController(nibName: "MasterViewController", bundle: nil)
         window.contentView?.addSubview(masterViewController.view)
         masterViewController.view.frame = (window.contentView! as NSView).bounds
+        
+        masterViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        let verticalContraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["subView": masterViewController.view])
+        let horizontalContraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["subView": masterViewController.view])
+        NSLayoutConstraint.activateConstraints(verticalContraints + horizontalContraints)
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
