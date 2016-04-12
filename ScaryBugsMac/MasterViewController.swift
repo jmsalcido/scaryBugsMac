@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Quartz
 
 class MasterViewController: NSViewController {
     
@@ -78,10 +79,28 @@ class MasterViewController: NSViewController {
         self.bugRatingView.rating = Float(0.0)
     }
     
-    
+    func pictureTakerDidEnd(picker: IKPictureTaker, returnCode: NSInteger, contextInfo: UnsafePointer<Void>) {
+        let image = picker.outputImage()
+        
+        if image != nil && returnCode == NSModalResponseOK {
+            self.bugImageView.image = image
+            if let selectedDoc = selectedBugDoc() {
+                selectedDoc.fullImage = image
+                selectedDoc.thumbImage = image.imageByScalingAndCroppingForSize(CGSize(width: 44, height: 44))
+                reloadSelectedRow()
+            }
+        }
+    }
 }
 
+// MARK: - IBActions
 extension MasterViewController {
+    
+    @IBAction func changePicture(sender: AnyObject) {
+        if selectedBugDoc() != nil {
+            IKPictureTaker().beginPictureTakerSheetForWindow(self.view.window, withDelegate: self, didEndSelector: #selector(MasterViewController.pictureTakerDidEnd(_:returnCode:contextInfo:)), contextInfo: nil)
+        }
+    }
     
     @IBAction func bugTitleDidEndEdit(sender: AnyObject) {
         if let selectedDoc = selectedBugDoc() {
@@ -111,7 +130,7 @@ extension MasterViewController {
     }
 }
 
-
+// MARK: - NSTableViewDataSource
 extension MasterViewController: NSTableViewDataSource {
     func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
         return self.bugs.count
@@ -130,6 +149,8 @@ extension MasterViewController: NSTableViewDataSource {
     
 }
 
+
+// MARK: - NSTableViewDelegate
 extension MasterViewController: NSTableViewDelegate {
     
     func tableViewSelectionDidChange(notification: NSNotification) {
@@ -138,6 +159,7 @@ extension MasterViewController: NSTableViewDelegate {
     }
 }
 
+// MARK: - EDStarRatingProtocol
 extension MasterViewController: EDStarRatingProtocol {
     func starsSelectionChanged(control: EDStarRating!, rating: Float) {
         if let selectedDoc = selectedBugDoc() {
