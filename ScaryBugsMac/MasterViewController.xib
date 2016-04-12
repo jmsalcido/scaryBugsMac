@@ -12,6 +12,8 @@
                 <outlet property="bugRatingView" destination="dir-sm-VfP" id="rOy-ZA-LMh"/>
                 <outlet property="bugTitleView" destination="Vzb-Ry-1aN" id="RM0-it-5HB"/>
                 <outlet property="bugsTableView" destination="Wop-uH-79C" id="8j2-c8-fbJ"/>
+                <outlet property="changePictureButton" destination="c9A-pF-hc6" id="zMh-of-a9R"/>
+                <outlet property="deleteButton" destination="2GQ-j9-6sN" id="lj8-Nb-Vmc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -176,7 +178,7 @@
                         <constraint firstAttribute="height" constant="28" id="QRl-sM-Kcw"/>
                         <constraint firstAttribute="width" constant="26" id="cC2-vh-3NK"/>
                     </constraints>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PNj-Il-E3p">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PNj-Il-E3p">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -190,7 +192,7 @@
                         <constraint firstAttribute="height" constant="21" id="4uI-yQ-vst"/>
                         <constraint firstAttribute="width" constant="131" id="aLF-53-6fO"/>
                     </constraints>
-                    <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vxW-GF-7mA">
+                    <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vxW-GF-7mA">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

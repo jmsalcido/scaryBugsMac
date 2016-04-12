@@ -15,6 +15,8 @@ class MasterViewController: NSViewController {
     @IBOutlet weak var bugTitleView: NSTextFieldCell!
     @IBOutlet weak var bugImageView: NSImageView!
     @IBOutlet weak var bugRatingView: EDStarRating!
+    @IBOutlet weak var deleteButton: NSButton!
+    @IBOutlet weak var changePictureButton: NSButton!
     
     let useStub = true
     var bugs = [ScaryBugDoc]()
@@ -22,6 +24,14 @@ class MasterViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bugs = getSampleBugs()
+        updateButtons(false)
+    }
+    
+    func updateButtons(enabled: Bool) {
+        deleteButton.enabled = enabled
+        changePictureButton.enabled = enabled
+        bugRatingView.editable = enabled
+        bugTitleView.enabled = enabled
     }
     
     func getSampleBugs() -> [ScaryBugDoc] {
@@ -77,6 +87,7 @@ class MasterViewController: NSViewController {
         self.bugRatingView.halfStarThreshold = 0.001
         
         self.bugRatingView.rating = Float(0.0)
+        self.bugRatingView.editable = false
     }
     
     func pictureTakerDidEnd(picker: IKPictureTaker, returnCode: NSInteger, contextInfo: UnsafePointer<Void>) {
@@ -133,6 +144,7 @@ extension MasterViewController {
         bugs = getSampleBugs()
         updateDetailInfo(nil)
         bugsTableView.reloadData()
+        updateButtons(false)
     }
 }
 
@@ -162,6 +174,8 @@ extension MasterViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(notification: NSNotification) {
         let selectedDoc = selectedBugDoc()
         updateDetailInfo(selectedDoc)
+        let buttonsEnabled = (selectedDoc != nil)
+        updateButtons(buttonsEnabled)
     }
 }
 
